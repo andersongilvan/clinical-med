@@ -29,6 +29,7 @@ model Doctor {
   speciality String
   adressId   String @unique @map("adress_id")
   adress     Adress @relation(fields: [adressId], references: [id])
+  active Boolean @default(true)
 
   @@map("doctors")
 }

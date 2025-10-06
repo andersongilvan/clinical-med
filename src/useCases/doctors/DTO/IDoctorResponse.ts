@@ -4,12 +4,6 @@ export interface IDoctorResponse {
   username: string
   crm: string
   speciality: string
-  address: {
-    id: string
-    state: string
-    city: string
-    neighbohhod: string
-    publicPlace: string
-    number: string
-  }
+  active: boolean
+  adressId : string
 }

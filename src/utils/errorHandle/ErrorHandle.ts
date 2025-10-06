@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express"
 import { ZodError } from "zod"
 import { EmailAlreadyExistException } from "../exceptions/EmailAlreadyexistException"
 import { UsernameAlreadyExsistException } from "../exceptions/USernameAlreadyExistException"
+import { ResourseNotFoundException } from "../exceptions/ResourseNotFoudException"
 
 export function errorHandle(
   error: Error,
@@ -21,11 +22,15 @@ export function errorHandle(
   }
 
   if (error instanceof EmailAlreadyExistException) {
-    return response.status(error.stastusCode).json({message : error.message})
+    return response.status(error.stastusCode).json({ message: error.message })
   }
 
   if (error instanceof UsernameAlreadyExsistException) {
-    return response.status(error.stastusCode).json({message : error.message})
+    return response.status(error.stastusCode).json({ message: error.message })
+  }
+
+  if (error instanceof ResourseNotFoundException) {
+    return response.status(error.stastusCode).json({ message: error.message })
   }
 
   next()
