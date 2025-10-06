@@ -3,7 +3,7 @@ import z from "zod"
 
 import { hash } from "bcryptjs"
 import { IDoctorRepository } from "../../../repositories/IDoctorRepository"
-import { UsernameAlreadyExsistException } from "../../../exceptions/USernameAlreadyExistException"
+import { UsernameAlreadyExsistException } from "../../../utils/exceptions/USernameAlreadyExistException"
 import { DoctorMapper } from "../../../mappers/DoctorMapper"
 
 export class CreateDoctorUseCase {
