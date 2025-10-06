@@ -1,11 +1,10 @@
-
 import { IRequestDoctor } from "../DTO/IRequestDoctor"
 import z from "zod"
 
 import { hash } from "bcryptjs"
-import { IResponseDoctor } from "../DTO/IResponseDoctor"
 import { IDoctorRepository } from "../../../repositories/IDoctorRepository"
 import { UsernameAlreadyExsistException } from "../../../exceptions/USernameAlreadyExistException"
+import { DoctorMapper } from "../../../mappers/DoctorMapper"
 
 export class CreateDoctorUseCase {
   constructor(private doctorRepository: IDoctorRepository) {}
@@ -41,12 +40,16 @@ export class CreateDoctorUseCase {
 
     // encriptar a senha
 
-    const hashPass = await hash(data.password, 8)
+    const hashPass = await hash(data.password, 8) 
 
     data.password = hashPass
 
     // salvar no banco de dados
 
-    return (await this.doctorRepository.create(data)) as IResponseDoctor
+    const doctorCreated = await this.doctorRepository.create(data)
+
+    const doctor = await this.doctorRepository.findById(doctorCreated.id)
+
+    return DoctorMapper.toDoctorResponse(doctor!)
   }
 }
