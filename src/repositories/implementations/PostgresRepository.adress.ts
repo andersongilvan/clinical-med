@@ -7,7 +7,9 @@ export class PostgresRepositoryAdress implements IAdressRepository {
   constructor(private pirsma: PrismaClient) {}
 
   async findById(id: string): Promise<Adress | null> {
-    return await this.findById(id)
+    return await this.pirsma.adress.findUnique({
+      where: { id },
+    })
   }
 
   async update(data: IAdressUpdateRequest): Promise<void> {

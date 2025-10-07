@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express"
 import { CreateAdressUseCase } from "./CreateAdressUseCase"
+import { AdressMapper } from "../../../mappers/AdressMapper"
 
 export class CreateAdressController {
   constructor(private createAdressUseCase: CreateAdressUseCase) {}
@@ -11,14 +12,16 @@ export class CreateAdressController {
   ) => {
     const { state, city, neighbohhod, publicPlace, number } = request.body
 
+    const adressRequest = AdressMapper.toRequestAdress(
+      state,
+      city,
+      neighbohhod,
+      publicPlace,
+      number,
+    )
+
     try {
-      const result = await this.createAdressUseCase.execute({
-        state,
-        city,
-        neighbohhod,
-        publicPlace,
-        number,
-      })
+      const result = await this.createAdressUseCase.execute(adressRequest)
 
       return response.status(201).json(result)
     } catch (error) {
