@@ -1,7 +1,7 @@
 import { IDoctorRepository } from "../../../repositories/IDoctorRepository"
 import { ResourseNotFoundException } from "../../../utils/exceptions/ResourseNotFoudException"
 import { ZodValidatorClass } from "../../../utils/Validator/ZodValidatorClass"
-import { IUpdateDoctorRequest } from "../DTO/IUpdateDoctorRequest"
+import { IUpdateDoctorRequest } from "../dtos/IUpdateDoctorRequest"
 
 export class UpdateDoctorUseCase {
   constructor(private doctorRepository: IDoctorRepository) {}

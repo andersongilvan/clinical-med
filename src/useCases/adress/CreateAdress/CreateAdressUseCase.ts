@@ -1,6 +1,6 @@
-import { ICreateAdress } from "../DTO/ICreateAdressDTO"
+import { ICreateAdress } from "../dtos/ICreateAdressDTO"
 import z from "zod"
-import { IResponseAdressDTO } from "../DTO/IResponseAdressDto"
+import { IResponseAdressDTO } from "../dtos/IResponseAdressDto"
 import { IAdressRepository } from "../../../repositories/IAdressRepository"
 
 export class CreateAdressUseCase {
@@ -17,8 +17,6 @@ export class CreateAdressUseCase {
     })
 
     adressSchema.parse(data)
-
-    
 
     return (await this.adressRepository.create(data)) as IResponseAdressDTO
   }

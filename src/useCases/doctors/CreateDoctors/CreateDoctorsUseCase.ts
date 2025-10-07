@@ -1,4 +1,4 @@
-import { IRequestDoctor } from "../DTO/IRequestDoctor"
+import { IRequestDoctor } from "../dtos/IRequestDoctor"
 import z from "zod"
 
 import { hash } from "bcryptjs"
@@ -40,7 +40,7 @@ export class CreateDoctorUseCase {
 
     // encriptar a senha
 
-    const hashPass = await hash(data.password, 8) 
+    const hashPass = await hash(data.password, 8)
 
     data.password = hashPass
 

@@ -1,7 +1,7 @@
 import { Doctor, PrismaClient } from "../../generated/prisma"
 import { DoctorWithAdress } from "../../generated/types/DoctorWithAdress"
-import { IRequestDoctor } from "../../useCases/doctors/DTO/IRequestDoctor"
-import { IUpdateDoctorRequest } from "../../useCases/doctors/DTO/IUpdateDoctorRequest"
+import { IRequestDoctor } from "../../useCases/doctors/dtos/IRequestDoctor"
+import { IUpdateDoctorRequest } from "../../useCases/doctors/dtos/IUpdateDoctorRequest"
 import { IDoctorRepository } from "../IDoctorRepository"
 
 export class PostgresDoctorRepository implements IDoctorRepository {

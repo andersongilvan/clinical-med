@@ -1,6 +1,6 @@
 import { DoctorMapper } from "../../../mappers/DoctorMapper"
 import { IDoctorRepository } from "../../../repositories/IDoctorRepository"
-import { IDoctorResponse } from "../DTO/IDoctorResponse"
+import { IDoctorResponse } from "../dtos/IDoctorResponse"
 
 export class FindAlDoctorsUseCase {
   constructor(private doctorsRepository: IDoctorRepository) {}

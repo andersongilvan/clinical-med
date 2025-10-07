@@ -1,4 +1,4 @@
-export interface IResponseAdressDTO {
+export interface IResponseAdress {
   id: string
   state: string
   city: string

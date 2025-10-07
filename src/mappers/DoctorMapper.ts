@@ -1,8 +1,8 @@
 import { Doctor } from "../generated/prisma"
 import { DoctorWithAdress } from "../generated/types/DoctorWithAdress"
-import { IDoctorWithAdressResponse } from "../useCases/doctors/DTO/IDoctorWithAdressResponse"
-import { IDoctorResponse } from "../useCases/doctors/DTO/IDoctorResponse"
-import { IUpdateDoctorRequest } from "../useCases/doctors/DTO/IUpdateDoctorRequest"
+import { IDoctorWithAdressResponse } from "../useCases/doctors/dtos/IDoctorWithAdressResponse"
+import { IDoctorResponse } from "../useCases/doctors/dtos/IDoctorResponse"
+import { IUpdateDoctorRequest } from "../useCases/doctors/dtos/IUpdateDoctorRequest"
 
 export class DoctorMapper {
   static toDoctorWitAdressResponse(
